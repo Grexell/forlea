@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+a, button, input {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: #4285f4;
+}
+
+a:hover {
+    color: #4fc1e9;
+}
+
+button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #4285f4;
+}
+
+button:hover {
+    background-color: #4fc1e9;
+}
+
+input {
+    padding: 5px 10px;
+    border: 1px solid #e1e1e1;
+}
+
+.main.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1080px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.header, .content {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+/* header section */
+.header {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.header > div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.logo {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #4285f4;
+    font-size: 30px;
+    text-shadow: 0 0 3px #4285f4;
+}
+
+.logo:hover {
+    color: #4fc1e9;
+}
+
+.header .select.sphere {
+    background-color: #4285f4;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 3px 5px;
+    position: relative;
+}
+
+.header .select.sphere:hover {
+    background-color: #4fc1e9;
+}
+
+.header .select.sphere .select-header::after {
+    margin: 0 4px;
+    content: '';
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    top: -3px;
+
+    width: 7px;
+    height: 7px;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    transform: rotate(45deg);
+}
+
+.sphere-list {
+    position: absolute;
+    list-style: none;
+    top: 30px;
+
+    background-color: #fff;
+    width: max-content;
+    color: #000;
+    /* todo toggle*/ display: none;
+}
+
+.header .sphere-item {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    border-collapse: collapse;
+
+}
+
+.header .sphere-item:first-child {
+    border-top: 1px solid #e1e1e1;
+}
+
+.header .sphere-item:hover {
+    background-color: #4fc1e9;
+}
+
+.header .search {
+    flex: 1 0 auto;
+    position: relative;
+}
+
+.header .search input {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.header .search button {
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    right: 0;
+    color: #fff;
+    cursor: pointer;
+    background-color: #4285f4;
+}
+
+.header .search button:hover {
+    background-color: #4fc1e9;
+}
+
+.header .login {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.header .login a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.header .login:hover {
+    background-color: #e1e1e1;
+}
+
+.header .register {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #4285f4;
+}
+
+.header .register a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header .register:hover {
+    background-color: #4fc1e9;
+}
+
+
+/* content section */
+.content {
+    flex: 1 0 auto;
+}
+
+/* footer section */
+.footer {
+    flex: 0 1 auto;
+    display: flex;
+    padding: 25px;
+}
+
+.footer .col {
+    max-width: 30%;
+    padding: 25px;
+    position: relative;
+    white-space: normal;
+    font-size: .9em;
+}
+
+.footer .copyright {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 12px;
+    bottom: 5px;
+}
+
+.footer .catalog-item {
+    margin-bottom: 5px;
+}

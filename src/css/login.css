@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+}
+
+.left, .right {
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.left {
+    border-right: 1px solid #e1e1e1;
+}
+
+form .title {
+    color: #4285f4;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.input-wrapper {
+    margin: 15px;
+}
+
+.content button {
+    padding: 10px 15px;
+    margin: 15px;
+}

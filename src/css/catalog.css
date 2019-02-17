@@ -1,0 +1,73 @@
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.content > :nth-child(n + 2) {
+    border-top: 1px solid #e1e1e1;
+}
+
+.item .course-image {
+    width: 100px;
+}
+
+.item .course-info {
+    flex: 1 0 auto;
+}
+
+.item .course-name {
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+.item .course-creator-list,
+.item .course-lesson-counter,
+.item .course-applied-counter {
+    color: #5b5b5b;
+    font-size: .9em;
+}
+
+.item .course-creator {
+    display: inline-block;
+}
+
+.item .course-creator:nth-last-child(n+2)::after {
+    content: ',';
+}
+
+.item .course-tag {
+    color: #fff;
+    display: inline-block;
+    background-color: #4285f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.item .course-tag:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    padding: 15px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #5b5b5b;
+    border: 1px solid #e1e1e1;
+}
+
+.pagination a:hover {
+    background-color: #4fc1e9;
+    color: #fff;
+}
+
+.pagination a.active {
+    background-color: #4285f4;
+    color: #fff;
+}
