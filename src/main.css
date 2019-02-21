@@ -33,6 +33,10 @@ input {
     border: 1px solid #e1e1e1;
 }
 
+.hidden {
+    display: none;
+}
+
 .main.container {
     display: flex;
     flex-direction: column;
@@ -107,7 +111,7 @@ input {
     background-color: #fff;
     width: max-content;
     color: #000;
-    /* todo toggle*/ display: none;
+    z-index: 100;
 }
 
 .header .sphere-item {
@@ -118,7 +122,6 @@ input {
     border-right: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
     border-collapse: collapse;
-
 }
 
 .header .sphere-item:first-child {
@@ -127,6 +130,7 @@ input {
 
 .header .sphere-item:hover {
     background-color: #4fc1e9;
+    color: #fff;
 }
 
 .header .search {
