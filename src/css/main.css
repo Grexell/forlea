@@ -160,32 +160,32 @@ input {
     background-color: #4fc1e9;
 }
 
-.header .login {
+.header .login, .header .profile {
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.header .login a {
+.header .login a, .header .profile a {
     color: #4285f4;
     text-decoration: none;
 }
 
-.header .login:hover {
+.header .login:hover, .header .profile:hover {
     background-color: #e1e1e1;
 }
 
-.header .register {
+.header .register, .header .logout {
     padding: 5px 10px;
     border-radius: 5px;
     background-color: #4285f4;
 }
 
-.header .register a {
+.header .register a, .header .logout a {
     color: #fff;
     text-decoration: none;
 }
 
-.header .register:hover {
+.header .register:hover, .header .profile:hover {
     background-color: #4fc1e9;
 }
 

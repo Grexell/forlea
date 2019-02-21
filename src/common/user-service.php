@@ -4,10 +4,10 @@ session_start();
 
 function is_authorised()
 {
-    return empty($_SESSION['username']) || empty($_SESSION['password']);
+    return !empty($_SESSION['username']) && !empty($_SESSION['password']);
 }
 
-// todo ont't need it with ajax
+// todo dont't need it with ajax
 function is_authorized_or_redirect()
 {
     $authorized = is_authorised();
@@ -20,7 +20,7 @@ function is_authorized_or_redirect()
 function authorize($username, $password)
 {
 // todo return state of authorization
-//    todo: retrieve and check info from db
+// todo: retrieve and check info from db
 
     $_SESSION['username'] = $username;
     $_SESSION['password'] = $password;
