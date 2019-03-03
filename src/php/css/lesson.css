@@ -1,0 +1,104 @@
+.content {
+    display: flex;
+}
+
+.content .left {
+    flex: 0 1 20%;
+}
+
+.content .right {
+    flex: 1 0 auto;
+}
+
+.content .right video {
+    width: 100%;
+}
+
+.content .right .lesson-header {
+    color: #4285f4;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.content .right .readable-content {
+    color: #4a4a4a;
+    font-size: 1.1em;
+}
+
+.content .right .readable-content {
+    padding: 10px;
+    overflow: auto;
+}
+
+.content .right .readable-content li {
+    margin-left: 25px;
+    list-style-type: initial;
+}
+
+.content .right .readable-content :nth-child(n) {
+    color: #4a4a4a;
+    padding-bottom: 15px;
+}
+
+.content .right .description {
+    color: #4a4a4a;
+    padding-bottom: 15px;
+}
+
+.content .comment-wrapper {
+    display: flex;
+}
+
+.content .comment-wrapper input {
+    flex: 1 0 90%;
+}
+
+.content .comment-wrapper button {
+    flex: 0 1 10%;
+    color: #4285f4;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #a8a8a8;
+}
+
+.content .comment-wrapper button:hover {
+    color: #fff;
+    background-color: #4285f4;
+}
+
+.content .comment .date {
+    color: #a8a8a8;
+    display: inline-block;
+}
+
+.content .comment {
+    border-top: 1px solid #4285f4;
+}
+
+.content .comment .user {
+    color: #4285f4;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.content .comment .text {
+    color: #4a4a4a;
+}
+
+.content .list-item.visited a {
+    color: #a8a8a8;
+}
+
+.content .list-item.active {
+    background-color: #4285f4;
+}
+
+.content .list-item.active a {
+    color: #fff;
+}
+
+.content .list-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e1e1e1;
+    color: #4a4a4a;
+}

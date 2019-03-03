@@ -1,3 +1,9 @@
+.group-header {
+    padding: 10px 15px;
+    font-size: 1.4em;
+    color: #4285f4;
+}
+
 .item {
     position: relative;
     display: flex;
@@ -14,6 +20,7 @@
 }
 
 .item .course-info {
+    margin-left: 15px;
     flex: 1 0 auto;
 }
 
@@ -55,19 +62,19 @@
     padding: 15px;
 }
 
-.pagination a {
+.pagination :nth-child(n) {
     display: inline-block;
     padding: 5px 10px;
     color: #5b5b5b;
     border: 1px solid #e1e1e1;
 }
 
-.pagination a:hover {
+.pagination :nth-child(n):hover {
     background-color: #4fc1e9;
     color: #fff;
 }
 
-.pagination a.active {
+.pagination .active:nth-child(n) {
     background-color: #4285f4;
     color: #fff;
 }

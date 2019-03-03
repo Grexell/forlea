@@ -1,3 +1,9 @@
+<?php
+include_once('../common/user-service.php');
+if (!is_authorised()) {
+    header('Location: /');
+    exit();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +13,9 @@
     <script src="js/lib/jquery.js"></script>
     <link rel="stylesheet" href="css/login.css">
     <script src="js/auth.js"></script>
+    <link rel="stylesheet" href="css/description.css">
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -26,7 +33,7 @@
             <div class="select-header">Темы</div>
             <div class="sphere-list hidden">
                 <?php
-                include('../common/db-repository.php');
+                include_once('../common/db-repository.php');
                 $categories = get_categories();
 
                 for ($i = 0; $i < sizeof($categories); $i++) {
@@ -49,7 +56,9 @@
         </div>
 
         <?php
-        include('../common/user-service.php');
+        include_once('../common/user-service.php');
+        include_once('../common/file_service.php');
+
         if (is_authorised()) {
             print '<div class="profile"><a href="profile.php">Профиль</a></div>';
             print '<div class="logout"><a onclick="logout()">Выйти</a></div>';
@@ -60,28 +69,28 @@
         ?>
     </div>
     <div class="content">
-        <div class="overload-learning">
-            <a href="catalog.php">Overload Learning</a>
+        <div class="user left list">
+            <div class="username"><?php
+                print get_username();
+                ?></div>
+            <div class="profile-image"><?php
+                $username = get_username();
+                print '<img src="' . file_prefix() . get_user_file_prefix() . get_user($username) . '.png">';
+                ?></div>
         </div>
-        <div class="description-line">
-            <div>
-                <div class="text">Просматривайте интересные и познавательные уроки на самые разнообразные тематики.
-                    Более&nbsp;1000&nbsp;квалифицированных преподавателей
-                </div>
-            </div>
-        </div>
+        <div class="user right">
+            <?php
+            include_once('../common/lesson-service.php');
 
-        <div class="description-line">
-            <div>
-                <div class="text">Делитесь мнением о пройденном уроке, общайтесь с создателями и участниками курсов.
-                    Количество видеоуроков&nbsp;-&nbsp;7000+
-                </div>
-            </div>
-        </div>
-        <div class="description-line">
-            <div>
-                <div class="text">Проходите испытания для закрепления знаний по пройденным материалам</div>
-            </div>
+            $courses = get_applied_courses(get_username());
+
+            for ($i = 0; $i < count($courses); $i++) {
+                print '<div class="course">' .
+                    '<a class="name" href="description.php?course=' . $courses[$i]->id . '">' . $courses[$i]->name . '</a>'.
+                    (!empty($courses[$i]->next_lesson )? '<a class="next-lesson" href="lesson.php?lesson_id=' . $courses[$i]->next_lesson  . '">Следующий</a>': '').
+                    '</div>';
+            }
+            ?>
         </div>
     </div>
     <div class="footer">

@@ -1,0 +1,32 @@
+.dialog .left, .dialog .right {
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.dialog .left {
+    border-right: 1px solid #e1e1e1;
+}
+
+.login-form .title, .register-form .title {
+    color: #4285f4;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.login-form .input-wrapper, .register-form .input-wrapper {
+    margin: 15px 25px;
+}
+
+.login-form button, .register-form button {
+    padding: 10px 15px;
+}
+
+.login-form input, .register-form input, .register-form label {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form .error, .register-form .error {
+    color: red;
+}

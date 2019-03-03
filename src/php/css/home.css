@@ -1,0 +1,51 @@
+.overload-learning {
+    background: url("../asset/courses.jpg") no-repeat right;
+    background-size: cover;
+    height: 50vh;
+    position: relative;
+}
+
+.overload-learning a {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+
+.description-line {
+    padding: 40px;
+    font-size: 1.4em;
+    color: #4a4a4a;
+    margin-top: 10px;
+}
+
+.description-line:not(:last-of-type) {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.description-line .text {
+    width: 40%;
+    text-align: center;
+}
+
+.description-line:nth-child(2) > div {
+    background: url("../asset/homepage_first.png") no-repeat right bottom;
+    background-size: contain;
+}
+
+.description-line:nth-child(3) {
+    background: url("../asset/communication.png") no-repeat right bottom;
+    background-size: contain;
+}
+
+.description-line:nth-child(4) {
+    background: url("../asset/test.png") no-repeat right bottom;
+    background-size: contain;
+}
+
+.overload-learning a:hover {
+    background-color: #4fc1e9;
+}

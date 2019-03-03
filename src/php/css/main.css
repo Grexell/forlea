@@ -4,7 +4,7 @@
     font-family: Helvetica, sans-serif;
 }
 
-a, button, input {
+a, button, input, select {
     outline: none;
 }
 
@@ -28,7 +28,7 @@ button:hover {
     background-color: #4fc1e9;
 }
 
-input {
+input[type='text'], input[type='password'], select {
     padding: 5px 10px;
     border: 1px solid #e1e1e1;
 }
@@ -138,10 +138,20 @@ input {
     position: relative;
 }
 
-.header .search input {
+.header .search input, .header .search select {
     display: inline-block;
     box-sizing: border-box;
-    width: 90%;
+}
+
+.header .search input {
+    width: 70%;
+}
+
+.header .search select {
+    width: 20%;
+    position: absolute;
+    top: 0;
+    height: 100%;
 }
 
 .header .search button {
@@ -154,6 +164,10 @@ input {
     color: #fff;
     cursor: pointer;
     background-color: #4285f4;
+    background-image: url("../asset/search.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 14px;
 }
 
 .header .search button:hover {
@@ -163,6 +177,7 @@ input {
 .header .login, .header .profile {
     padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .header .login a, .header .profile a {
@@ -178,6 +193,7 @@ input {
     padding: 5px 10px;
     border-radius: 5px;
     background-color: #4285f4;
+    cursor: pointer;
 }
 
 .header .register a, .header .logout a {
@@ -185,7 +201,7 @@ input {
     text-decoration: none;
 }
 
-.header .register:hover, .header .profile:hover {
+.header .register:hover, .header .logout:hover {
     background-color: #4fc1e9;
 }
 
@@ -219,4 +235,55 @@ input {
 
 .footer .catalog-item {
     margin-bottom: 5px;
+}
+
+.dialog-background {
+    position: fixed;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-background::before {
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 200;
+    background-color: #e1e1e1;
+    opacity: .5;
+}
+
+.dialog {
+    z-index: 300;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.file-input {
+    padding: 5px 10px;
+    color: #4285f4;
+    border: 2px solid #4285f4;
+    cursor: pointer;
+}
+
+.file-input:hover {
+    background-color: #e1e1e1;
+}
+
+.file-input input {
+    display: none;
 }

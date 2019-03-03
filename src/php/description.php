@@ -7,8 +7,8 @@
     <script src="js/lib/jquery.js"></script>
     <link rel="stylesheet" href="css/login.css">
     <script src="js/auth.js"></script>
+    <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -26,7 +26,7 @@
             <div class="select-header">Темы</div>
             <div class="sphere-list hidden">
                 <?php
-                include('../common/db-repository.php');
+                include_once('../common/db-repository.php');
                 $categories = get_categories();
 
                 for ($i = 0; $i < sizeof($categories); $i++) {
@@ -49,7 +49,7 @@
         </div>
 
         <?php
-        include('../common/user-service.php');
+        include_once('../common/user-service.php');
         if (is_authorised()) {
             print '<div class="profile"><a href="profile.php">Профиль</a></div>';
             print '<div class="logout"><a onclick="logout()">Выйти</a></div>';
@@ -60,29 +60,35 @@
         ?>
     </div>
     <div class="content">
-        <div class="overload-learning">
-            <a href="catalog.php">Overload Learning</a>
-        </div>
-        <div class="description-line">
-            <div>
-                <div class="text">Просматривайте интересные и познавательные уроки на самые разнообразные тематики.
-                    Более&nbsp;1000&nbsp;квалифицированных преподавателей
-                </div>
-            </div>
-        </div>
+        <?php
+        include_once('../common/course-service.php');
+        include_once('../common/file_service.php');
+        if (isset($_GET['course'])) {
+            $course_id = $_GET['course'];
+            $category = get_course_by_id($course_id);
+            $username = get_username();
+            print '<div class="course-header">' . $category->courses[0]->name . '</div>';
+            print '<div class="course-subheader"><a href="catalog.php?category=' . $category->id . '">' . $category->name . '</a></div>';
+            print '<div class="course-info"><div class="left"><div class="embed">' . file_get_contents(get_file_storage_path() . description_prefix() . $category->courses[0]->id) . '</div>';
 
-        <div class="description-line">
-            <div>
-                <div class="text">Делитесь мнением о пройденном уроке, общайтесь с создателями и участниками курсов.
-                    Количество видеоуроков&nbsp;-&nbsp;7000+
-                </div>
-            </div>
-        </div>
-        <div class="description-line">
-            <div>
-                <div class="text">Проходите испытания для закрепления знаний по пройденным материалам</div>
-            </div>
-        </div>
+            for ($i = 0; $i < count($category->courses[0]->lessons); $i++) {
+                print '<div class="bordered">' . $category->courses[0]->lessons[$i] . '</div>';
+            }
+
+            print '</div>';
+            print '<div class="right">'
+                . '<img src="' . file_prefix() . get_course_image_prefix() . $category->courses[0]->id . '.png" alt="" class="course-image"><div class="lesson-count">Содержит '
+                . ($category->courses[0]->lesson_count ? $category->courses[0]->lesson_count : 0)
+                . ' уроков</div><div class="applied">Записалось '
+                . ($category->courses[0]->users_count ? $category->courses[0]->users_count : 0)
+                . ' учащихся</div>' .
+                (is_authorised() ? (!is_applied_course($username, $course_id) ?
+                    '<button class="apply" onclick="engage()">Записаться</button>' : '<div>Вы уже записались</div>') : '<button class="apply" onclick="engage()">Записаться</button>')
+                . '</div></div>';
+        }
+
+        ?>
+
     </div>
     <div class="footer">
         <div class="col">

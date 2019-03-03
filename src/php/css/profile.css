@@ -1,0 +1,44 @@
+.content {
+    display: flex;
+}
+
+.content .left {
+    flex: 0 1 20%;
+}
+
+.content .right {
+    flex: 1 0 auto;
+    padding: 10px 15px;
+}
+
+.content .username {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.content .username, .content .name {
+    padding: 10px 15px;
+    color: #4285f4;
+    font-size: 1.1em;
+}
+
+.content .profile-image {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .next-lesson {
+    float: right;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #4285f4;
+}
+
+.content .course {
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: space-between;
+}
